@@ -1,4 +1,6 @@
-const ObjectWrapDemo = require("../lib/binding.js");
+// const ObjectWrapDemo = require("../lib/binding.js");
+const ObjectWrapDemo = require('../build/Release/object-wrap-demo-native').ObjectWrapDemo
+
 const assert = require("assert");
 
 assert(ObjectWrapDemo, "The expected module is undefined");
