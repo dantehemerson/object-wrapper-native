@@ -49,9 +49,15 @@ Napi::Function ObjectWrapDemo::GetClass(Napi::Env env) {
     });
 }
 
+
+Napi::Boolean AreYouLying(const Napi::CallbackInfo& info) {
+    return Napi::Boolean::New(info.Env(), true);
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
     Napi::String name = Napi::String::New(env, "ObjectWrapDemo");
     exports.Set(name, ObjectWrapDemo::GetClass(env));
+    exports.Set(Napi::String::New(env, "AreYouLying"), Napi::Function::New(env, AreYouLying));
     return exports;
 }
 
